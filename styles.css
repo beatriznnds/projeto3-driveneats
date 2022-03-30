@@ -2,7 +2,7 @@
 	box-sizing: border-box;
 }
 
-.body {
+body {
     background-color: #E5E5E5;
 }
 
@@ -30,10 +30,70 @@
     font-weight: 400;
 }
 
-.produto {
-    margin-top: 10px;
-    background-color: blue;
+
+.conteudo h3 {
+    margin-top: 50px;
+    margin-left: 20px;
+    font-family: 'Righteous';
+    font-size: 26px;
+    line-height: 32px;
+    letter-spacing: 1.5;
 }
+
+.conteudo > div {
+    display: flex;
+    width: 100%;
+    max-width: 415px;
+    padding-left: 20px;
+    overflow-x: scroll;   
+    margin-top: 10px; 
+}
+
+.conteudo img {
+    border-radius: 5%;
+}
+
+.fundo {
+    width: 172px;
+    height: 216px;
+    display: inline-block;
+    border-radius: 5%;
+    margin-right: 20px;
+    box-shadow: 5px 10px 5px rgba(0, 0, 0, 0.25);
+    background-color: white;    
+}
+
+
+.produto-individual {
+    margin-top: 30px;
+    margin-left: 8px;
+    margin-right: 8px;    
+    font-family: 'Roboto';
+}
+
+.produto-individual h4 {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
+    margin-top: 4px;
+
+}
+
+.produto-individual p {
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 18px;
+    color: #A6A6A6;
+    margin-top: 4px;
+}
+
+.produto-individual h5 {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+    margin-top: 4px;
+}
+
 
 .fechar-pedido {
     background-color: yellow;
