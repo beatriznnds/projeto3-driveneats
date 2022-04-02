@@ -63,7 +63,7 @@ function mudarBotao () {
             .querySelector("button").disabled = false
             .querySelector("button").classList.add("botao-selecionado")
             .querySelector(".mensagem-pedido").innerHTML = `Fechar pedido`;
-    }
+        }
     else {
         document.querySelector("button").disabled = true;
     }
@@ -78,9 +78,8 @@ function finalizarPedido () {
         - Bebida: ${bebidaSelecionada}
         - Sobremesa: ${sobremesaSelecionada}
         Total: ${precoComida + precoBebida + precoSobremesa}
-        Nome: ${nome}
-        Endereço: ${endereco}`;
-        window.open("https://wa.me/5592994939981?text=");
+        Nome: ${nome}`
+        
+        window.open("https://wa.me/5592994939981?text=" + encodeURIComponent(str));
     }
 }
-
