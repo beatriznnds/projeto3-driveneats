@@ -1,26 +1,47 @@
+let comidaSelecionada;
+let bebidaSelecionada;
+let sobremesaSelecionada;
+let vetor;
+
+
 function selecionarComida(comida) {    
- let comidaSelecionada = document.querySelector(".prato-selecionado");
- let vetor = document.querySelector(".vetor-selecionado");
- if (comidaSelecionada !== null ) {
+ comidaSelecionada = document
+    .querySelector(".comida-escolhida")
+    .querySelector(".prato-selecionado");
+ vetor = document.querySelector(".vetor-selecionado");
+ if (comidaSelecionada !== null) {
      comidaSelecionada.classList.toggle("prato-selecionado");
-     vetor.classList.toggle("vetor-funcionando");
-     comdi
+     comidaSelecionada.querySelector("svg").classList.toggle("vetor-selecionado");     
  }
- comida.classList.add("prato-selecionado");
+ comida.classList.add("prato-selecionado", "vetor-funcionando")
 }
 
 function selecionarBebida(bebida) {
-    let bebidaSelecionada = document.querySelector(".prato-selecionado");
+    bebidaSelecionada = document
+     .querySelector(".bebida-escolhida")
+     .querySelector(".prato-selecionado");
+    vetor = document.querySelector(".vetor-selecionado");
     if (bebidaSelecionada !== null) {
         bebidaSelecionada.classList.toggle("prato-selecionado");
+        bebidaSelecionada.querySelector("svg").classList.toggle("vetor-selecionado");
     }
-    bebida.classList.add("prato-selecionado");
+    bebida.classList.add("prato-selecionado", "vetor-funcionando");
 }
 
 function selecionarSobremesa(sobremesa) {
-    let sobremesaSelecionada = document.querySelector(".prato-selecionado");
+    sobremesaSelecionada = document
+        .querySelector(".sobremesa-escolhida")
+        .querySelector(".prato-selecionado");
+    vetor = document.querySelector(".vetor-selecionado");
     if (sobremesaSelecionada !== null) {
         sobremesaSelecionada.classList.toggle("prato-selecionado");
+        sobremesaSelecionada.querySelector("svg").classList.toggle("vetor-selecionado");
     }
-    sobremesa.classList.add("prato-selecionado");
+    sobremesa.classList.add("prato-selecionado", "vetor-funcionando");
+}
+
+function finalizarPedido () {
+    if (comida && bebida && sobremesa) {
+        document.querySelector("button").classList.remove("fechar-pedido")
+    }
 }
