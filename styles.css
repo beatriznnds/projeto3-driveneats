@@ -152,7 +152,7 @@ body {
     left:0;
 }
 
-.fechar-pedido button {
+button {
     background-color: #CBCBCB;
     font-size: 30px;
     width: 90%;
@@ -162,7 +162,7 @@ body {
 }
 
 .botao-selecionado {
-    background-color: #32B72F;
+    background-color: #32B72F !important;
 }
 
 .fechar-pedido p {
@@ -170,3 +170,4 @@ body {
     font-size: 20px;
     color: #ffffff;
 }
+
