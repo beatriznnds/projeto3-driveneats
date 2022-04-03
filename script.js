@@ -19,8 +19,7 @@ function selecionarComida(comida) {
      comidaSelecionada.querySelector("svg").classList.toggle("vetor-selecionado");     
  }
  comida.classList.add("prato-selecionado");
- comida.querySelector("svg").classList.toggle("vetor-selecionado");
- precoComida = Number(comida.querySelector(".produto-individual h5").innerHTML);
+ comida.querySelector("svg").classList.toggle("vetor-selecionado"); 
  SelecionouComida = true;
  mudarBotao ();
 }
@@ -36,7 +35,6 @@ function selecionarBebida(bebida) {
     }
     bebida.classList.add("prato-selecionado");
     bebida.querySelector("svg").classList.toggle("vetor-selecionado");
-    precoBebida = Number(bebida.querySelector(".produto-individual h5").innerHTML);
     SelecionouBebida = true;
     mudarBotao ();
 }
@@ -52,7 +50,6 @@ function selecionarSobremesa(sobremesa) {
     }
     sobremesa.classList.add("prato-selecionado");
     sobremesa.querySelector("svg").classList.toggle("vetor-selecionado");
-    precoSobremesa = Number(sobremesa.querySelector(".produto-individual h5").innerHTML);
     SelecionouSobremesa = true;
     mudarBotao ();
 }
@@ -72,16 +69,19 @@ function finalizarPedido () {
       .querySelector(".comida-escolhida")
       .querySelector(".prato-selecionado");
     let nomeComida = comidaSelecionada.querySelector(".produto-individual h4").innerHTML;
+    precoComida = comidaSelecionada.querySelector("span").innerHTML.replace(",", ".");    
     sobremesaSelecionada = document
      .querySelector(".sobremesa-escolhida")
      .querySelector(".prato-selecionado");
     let nomeSobremesa = sobremesaSelecionada.querySelector(".produto-individual h4").innerHTML;
+    precoSobremesa = sobremesaSelecionada.querySelector("span").innerHTML.replace(",", ".");
     bebidaSelecionada = document
         .querySelector(".bebida-escolhida")
         .querySelector(".prato-selecionado");
     let nomeBebida = bebidaSelecionada.querySelector(".produto-individual h4").innerHTML;
-    if (comidaSelecionada && bebidaSelecionada && sobremesaSelecionada) {
-        let precoTotal = Number(precoComida + precoBebida + precoSobremesa);
+    precoBebida = bebidaSelecionada.querySelector("span").innerHTML.replace(",", ".");
+    if (comidaSelecionada && bebidaSelecionada && sobremesaSelecionada) {       
+        let precoTotal = ((Number(precoComida) + Number(precoBebida) + Number(precoSobremesa)).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' }).replace(",", "."));
         let nome = prompt("Qual é seu nome?");
         let endereco = prompt("Qual é seu endereço?")
         let str = `Olá, gostaria de fazer o pedido:\n- Prato: ${nomeComida}\n- Bebida: ${nomeBebida}\n- Sobremesa: ${nomeSobremesa}\nTotal: ${precoTotal}\n\nNome: ${nome}\nEndereço: ${endereco}`;
