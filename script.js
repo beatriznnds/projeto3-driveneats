@@ -20,7 +20,7 @@ function selecionarComida(comida) {
  }
  comida.classList.add("prato-selecionado");
  comida.querySelector("svg").classList.toggle("vetor-selecionado");
- precoComida = Number(comida.querySelector(".produto-individual h5"));
+ precoComida = Number(comida.querySelector(".produto-individual h5").innerHTML);
  SelecionouComida = true;
  mudarBotao ();
 }
@@ -36,7 +36,7 @@ function selecionarBebida(bebida) {
     }
     bebida.classList.add("prato-selecionado");
     bebida.querySelector("svg").classList.toggle("vetor-selecionado");
-    precoBebida = Number(bebida.querySelector(".produto-individual h5"));
+    precoBebida = Number(bebida.querySelector(".produto-individual h5").innerHTML);
     SelecionouBebida = true;
     mudarBotao ();
 }
@@ -52,7 +52,7 @@ function selecionarSobremesa(sobremesa) {
     }
     sobremesa.classList.add("prato-selecionado");
     sobremesa.querySelector("svg").classList.toggle("vetor-selecionado");
-    precoSobremesa = Number(sobremesa.querySelector(".produto-individual h5"));
+    precoSobremesa = Number(sobremesa.querySelector(".produto-individual h5").innerHTML);
     SelecionouSobremesa = true;
     mudarBotao ();
 }
@@ -71,23 +71,20 @@ function finalizarPedido () {
    comidaSelecionada = document
       .querySelector(".comida-escolhida")
       .querySelector(".prato-selecionado");
+    let nomeComida = comidaSelecionada.querySelector(".produto-individual h4").innerHTML;
     sobremesaSelecionada = document
      .querySelector(".sobremesa-escolhida")
      .querySelector(".prato-selecionado");
+    let nomeSobremesa = sobremesaSelecionada.querySelector(".produto-individual h4").innerHTML;
     bebidaSelecionada = document
         .querySelector(".bebida-escolhida")
         .querySelector(".prato-selecionado");
+    let nomeBebida = bebidaSelecionada.querySelector(".produto-individual h4").innerHTML;
     if (comidaSelecionada && bebidaSelecionada && sobremesaSelecionada) {
         let precoTotal = Number(precoComida + precoBebida + precoSobremesa);
         let nome = prompt("Qual é seu nome?");
         let endereco = prompt("Qual é seu endereço?")
-        let str = `Olá, gostaria de fazer o pedido:
-        - Prato: ${comidaSelecionada}
-        - Bebida: ${bebidaSelecionada}
-        - Sobremesa: ${sobremesaSelecionada}
-        Total: ${precoTotal}
-        Nome: ${nome}
-        Endereco: ${endereco}`;
+        let str = `Olá, gostaria de fazer o pedido:\n- Prato: ${nomeComida}\n- Bebida: ${nomeBebida}\n- Sobremesa: ${nomeSobremesa}\nTotal: ${precoTotal}\n\nNome: ${nome}\nEndereço: ${endereco}`;
         
         window.open("https://wa.me/5592994939981?text=" + encodeURIComponent(str));
     }
